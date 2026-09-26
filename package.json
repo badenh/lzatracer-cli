@@ -1,0 +1,52 @@
+{
+  "name": "@lzatracer/cli",
+  "version": "0.1.0",
+  "description": "Compare an AWS LZA config against the LZA UC v1.3.1 baseline — coverage report (terminal / JSON / HTML).",
+  "license": "Apache-2.0",
+  "author": "Baden Hughes <baden.hughes@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/badenh/lzatracer-cli.git"
+  },
+  "homepage": "https://lzatracer.net",
+  "bugs": {
+    "url": "https://github.com/badenh/lzatracer/issues"
+  },
+  "keywords": [
+    "aws",
+    "lza",
+    "landing-zone",
+    "compliance",
+    "coverage",
+    "cli"
+  ],
+  "type": "module",
+  "bin": {
+    "lzatracer": "./dist/index.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "cli-table3": "^0.6.5",
+    "commander": "^15.0.0",
+    "env-paths": "^4.0.0",
+    "exceljs": "^4.4.0",
+    "fast-glob": "^3.3.0",
+    "isomorphic-git": "^1.38.0",
+    "microdiff": "^1.5.0",
+    "picocolors": "^1.1.1",
+    "picomatch": "^4.0.0",
+    "pino": "^9.0.0",
+    "simple-git": "^3.36.0",
+    "yaml": "^2.9.0"
+  }
+}
