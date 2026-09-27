@@ -20399,7 +20399,7 @@ function renderJson(bundle) {
 }
 
 // src/commands/compare.ts
-var TOOL_VERSION = true ? "0.1.3" : "0.0.0-dev";
+var TOOL_VERSION = true ? "0.1.4" : "0.0.0-dev";
 function stubCatalog(workbookVersion) {
   return {
     version: 1,
@@ -21122,7 +21122,7 @@ async function runInspect(variantRef, opts) {
 }
 
 // src/index.ts
-var VERSION = true ? "0.1.3" : "0.0.0-dev";
+var VERSION = true ? "0.1.4" : "0.0.0-dev";
 var program = new Command();
 program.name("lzatracer").description("Analyse and diff AWS Landing Zone Accelerator YAML variants.").version(VERSION).option("-v, --verbose", "enable info-level logging (default: warn+ only)");
 program.hook("preAction", (thisCommand) => {
