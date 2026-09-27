@@ -77,7 +77,7 @@ lzatracer compare ./my-lza-config || echo "coverage gaps"
 
 ## Baseline
 
-v0.1.0 ships the LZA UC v1.3.1 baseline (frozen at commit `4c4494435a7083b4935766924f3bc622a1880b14`). No network fetch at runtime — the baseline is inlined into the bundle.
+Current release ships the LZA UC v1.3.1 baseline (frozen at commit `4c4494435a7083b4935766924f3bc622a1880b14`). No network fetch at runtime — the baseline is inlined into the bundle.
 
 Configurable `--baseline <name>` reserved for future expansion (Healthcare LZA, EUSC, etc.). For now, `--baseline uc` is the only value.
 
@@ -96,6 +96,6 @@ See [lzatracer.net](https://lzatracer.net) for:
 
 ## Support
 
-Issue tracker: [github.com/badenh/lzatracer/issues](https://github.com/badenh/lzatracer/issues).
+Issue tracker: [github.com/badenh/lzatracer-cli/issues](https://github.com/badenh/lzatracer-cli/issues).
 
-Source (monorepo): [github.com/badenh/lzatracer](https://github.com/badenh/lzatracer). Note that this npm package is published from a separate artifact repo at [github.com/badenh/lzatracer-cli](https://github.com/badenh/lzatracer-cli) — file issues against the main monorepo, not the artifact repo.
+Source is maintained in a private monorepo; the public artifact repo [github.com/badenh/lzatracer-cli](https://github.com/badenh/lzatracer-cli) is what this npm package is published from. File CLI issues and feature requests against `lzatracer-cli`.
