@@ -19987,7 +19987,7 @@ import { join as join6 } from "path";
 // src/logger.ts
 import pino from "pino";
 var isDev = process.env.NODE_ENV !== "production";
-var level = process.env.LOG_LEVEL ?? "info";
+var level = process.env.LOG_LEVEL ?? "warn";
 var log = pino(
   isDev ? {
     transport: {
@@ -20399,12 +20399,13 @@ function renderJson(bundle) {
 }
 
 // src/commands/compare.ts
+var TOOL_VERSION = true ? "0.1.3" : "0.0.0-dev";
 function stubCatalog(workbookVersion) {
   return {
     version: 1,
     workbookVersion,
     generatedAt: "__COMPARE_STUB__",
-    toolVersion: "0.1.0",
+    toolVersion: TOOL_VERSION,
     sourceFile: "bundled-baseline",
     records: [],
     familyCounts: {},
@@ -20451,7 +20452,7 @@ async function runCompare(lzaConfigDir, opts) {
         configRoot: "."
       }
     },
-    toolVersion: "0.1.0"
+    toolVersion: TOOL_VERSION
   });
   const format = opts.format ?? "terminal";
   const colorEnabled = opts.color !== false && !process.env.NO_COLOR;
@@ -21121,9 +21122,15 @@ async function runInspect(variantRef, opts) {
 }
 
 // src/index.ts
-var VERSION = "0.1.0";
+var VERSION = true ? "0.1.3" : "0.0.0-dev";
 var program = new Command();
-program.name("lzatracer").description("Analyse and diff AWS Landing Zone Accelerator YAML variants.").version(VERSION);
+program.name("lzatracer").description("Analyse and diff AWS Landing Zone Accelerator YAML variants.").version(VERSION).option("-v, --verbose", "enable info-level logging (default: warn+ only)");
+program.hook("preAction", (thisCommand) => {
+  const opts = thisCommand.optsWithGlobals?.() ?? {};
+  if (opts.verbose && !process.env.LOG_LEVEL) {
+    process.env.LOG_LEVEL = "info";
+  }
+});
 program.command("inspect").description("Print the parsed AST for a single variant.").argument("<variantRef>", "variantRef declared in lineage config").option("--config <file>", "lineage.config.ts").action(async (variantRef, opts) => {
   await runInspect(variantRef, opts);
 });
