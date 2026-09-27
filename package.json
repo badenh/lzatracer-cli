@@ -1,6 +1,6 @@
 {
   "name": "@lzatracer/cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Compare an AWS LZA config against the LZA UC v1.3.1 baseline — coverage report (terminal / JSON / HTML).",
   "license": "Apache-2.0",
   "author": "Baden Hughes <baden.hughes@gmail.com>",
@@ -22,7 +22,7 @@
   ],
   "type": "module",
   "bin": {
-    "lzatracer": "./dist/index.js"
+    "lzatracer": "dist/index.js"
   },
   "engines": {
     "node": ">=22"
