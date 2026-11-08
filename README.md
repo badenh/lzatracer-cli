@@ -1,6 +1,6 @@
 # @lzatracer/cli
 
-Compare an AWS Landing Zone Accelerator (LZA) config directory against the LZA UC v1.3.1 baseline — coverage report in terminal, JSON, or HTML.
+Compare an AWS Landing Zone Accelerator (LZA) config directory against the LZA UC v1.4.0 baseline — coverage report in terminal, JSON, or HTML.
 
 Part of the [lzatracer](https://lzatracer.net) project — see the site for full methodology, cross-variant comparison, and per-control drilldown.
 
@@ -77,9 +77,15 @@ lzatracer compare ./my-lza-config || echo "coverage gaps"
 
 ## Baseline
 
-Current release ships the LZA UC v1.3.1 baseline (frozen at commit `4c4494435a7083b4935766924f3bc622a1880b14`). No network fetch at runtime — the baseline is inlined into the bundle.
+Current release ships the **LZA UC v1.4.0** baseline (frozen at commit `96aa5e73c5b4f574985a71b195796206cad060ce`; 197 fingerprints derived from LZA Compliance Workbook v1.4.0). No network fetch at runtime — the baseline is inlined into the bundle.
 
 Configurable `--baseline <name>` reserved for future expansion (Healthcare LZA, EUSC, etc.). For now, `--baseline uc` is the only value.
+
+## Workbook ingest
+
+`lzatracer catalog build --workbook <path>` accepts **both `.xlsx` and `.csv`** LZA Compliance Workbook files (auto-detected by file extension). Compatible with CW v1.1.0 → v1.4.0 inclusive — including pre-v1.3 shapes that lack the `Source Configuration File Reference` column (such rows get the `UNKNOWN` sentinel).
+
+AWS currently distributes CW v1.4.0 as CSV in the [LZA UC CATS test pack](https://github.com/aws/lza-universal-configuration/blob/main/cats/lza-compliance-workbook-1.4.0.csv); earlier versions (v1.1.0 / v1.2.0 / v1.3.0) ship as xlsx via AWS Artifact.
 
 ## Full methodology
 
